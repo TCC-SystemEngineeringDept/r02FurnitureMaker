@@ -3,6 +3,8 @@
  */
 package r02Furniture;
 
+import java.util.List;
+
 /**
  * @author t.yoshizawa
  *
@@ -31,5 +33,8 @@ public class Color {
 		setColorName(colorName);
 	}
 	
+	public List<Seihin> getSeihinList(){
+		return Seihin.getListByColorCode(getColorCode());
+	}
 	
 }

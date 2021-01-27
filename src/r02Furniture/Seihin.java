@@ -3,6 +3,8 @@
  */
 package r02Furniture;
 
+import java.util.List;
+
 /**
  * @author t.yoshizawa
  *
@@ -62,6 +64,11 @@ public class Seihin {
 		setColorCode(colorCode);
 		setSeihinName(seihinName);
 		setPrice(price);
+	}
+	
+	public static List<Seihin> getListByColorCode(String colorCode){
+		// TODO colorCodeが一致するSeihinをListに格納して返す
+		return null;
 	}
 	
 
