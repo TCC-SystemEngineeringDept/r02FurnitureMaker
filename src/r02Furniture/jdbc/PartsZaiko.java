@@ -1,7 +1,7 @@
 /**
  * 
  */
-package r02Furniture;
+package r02Furniture.jdbc;
 
 /**
  * パーツの在庫を扱うクラス（パーツと1対1対応）

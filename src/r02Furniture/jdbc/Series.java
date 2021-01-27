@@ -1,4 +1,4 @@
-package r02Furniture;
+package r02Furniture.jdbc;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package r02Furniture;
+package r02Furniture.jdbc;
 
 /**
  * 顧客を扱うクラス
