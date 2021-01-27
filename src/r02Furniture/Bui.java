@@ -6,6 +6,7 @@ package r02Furniture;
 import java.util.List;
 
 /**
+ * 部位のデータを扱うクラス
  * 
  * @author t.yoshizawa
  *
@@ -32,12 +33,17 @@ public class Bui {
 
 	///////////////////////////////////////////////////////////
 
-	public Bui(String buiCode , String buiName) {
+	public Bui(String buiCode, String buiName) {
 		setBuiCode(buiCode);
 		setBuiName(buiName);
 	}
-	
-	public List<Hinmoku> getHinmokuList(){
+
+	/**
+	 * この部位のインスタンスに対応する品目を返す
+	 * 
+	 * @return 品目のリスト
+	 */
+	public List<Hinmoku> getHinmokuList() {
 		return Hinmoku.getListByBuiCode(getBuiCode());
 	}
 }

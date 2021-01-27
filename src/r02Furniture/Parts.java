@@ -6,6 +6,8 @@ package r02Furniture;
 import java.util.List;
 
 /**
+ * パーツを扱うクラス(品目を参照)（在庫と1対1対応）
+ * 
  * @author t.yoshizawa
  *
  */
@@ -35,9 +37,23 @@ public class Parts {
 		setSeihinCode(seihinCode);
 		setHinmokuCode(hinmokuCode);
 	}
-	
-	public static List<Parts> getListByHinmokuCode(String hinmokuCode){
+
+	/**
+	 * このパーツのインスタンスに対応するキット製品構成パーツを返す
+	 * 
+	 * @return キット製品構成パーツのリスト
+	 */
+	public List<KitParts> getKitPartsList() {
+		return KitParts.getListBySeihinCode(getSeihinCode());
+	}
+
+	public static List<Parts> getListByHinmokuCode(String hinmokuCode) {
 		// TODO hinmokuCodeが一致するPartsをListに格納して返す
+		return null;
+	}
+
+	public static List<Parts> getListBySeihinCode(String seihinCode) {
+		// TODO seihinCodeが一致するPartsをListに格納して返す
 		return null;
 	}
 }

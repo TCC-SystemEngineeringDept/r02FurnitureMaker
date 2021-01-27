@@ -6,8 +6,10 @@ package r02Furniture;
 import java.util.List;
 
 /**
+ * 品目を扱うクラス(シリーズと部位を参照)
+ * 
  * @author t.yoshizawa
- *
+ * 
  */
 public class Hinmoku {
 	private String hinmokuCode;
@@ -73,7 +75,7 @@ public class Hinmoku {
 	}
 
 	///////////////////////////////////////////////////////////
-	
+
 	public Hinmoku(String hinmokuCode, String hinmokuName, String seriesCode, String buiCode, int sizeW, int sizeH,
 			int sizeD) {
 		setHinmokuCode(hinmokuCode);
@@ -84,19 +86,24 @@ public class Hinmoku {
 		setSizeH(sizeH);
 		setSizeD(sizeD);
 	}
-	
-	public static List<Hinmoku> getListByBuiCode(String buiCode){
+
+	/**
+	 * この品目のインスタンスに対応するパーツを返す
+	 * 
+	 * @return パーツのリスト
+	 */
+	public List<Parts> getPartsList() {
+		return Parts.getListByHinmokuCode(getHinmokuCode());
+	}
+
+	public static List<Hinmoku> getListByBuiCode(String buiCode) {
 		// TODO buiCodeが一致するHinmokuをListに格納して返す
 		return null;
 	}
 
-	public static List<Hinmoku> getListBySeriesCode(String seriesCode){
+	public static List<Hinmoku> getListBySeriesCode(String seriesCode) {
 		// TODO seriesCodeが一致するHinmokuをListに格納して返す
 		return null;
-	}
-	
-	public List<Parts> getPartsList(){
-		return Parts.getListByHinmokuCode(getHinmokuCode());
 	}
 
 }

@@ -6,6 +6,8 @@ package r02Furniture;
 import java.util.List;
 
 /**
+ * 販売製品のデータを扱うクラス(カラーを参照)
+ * 
  * @author t.yoshizawa
  *
  */
@@ -65,11 +67,28 @@ public class Seihin {
 		setSeihinName(seihinName);
 		setPrice(price);
 	}
-	
-	public static List<Seihin> getListByColorCode(String colorCode){
+
+	public static List<Seihin> getListByColorCode(String colorCode) {
 		// TODO colorCodeが一致するSeihinをListに格納して返す
 		return null;
 	}
-	
+
+	/**
+	 * この販売製品のインスタンスに対応するパーツを返す
+	 * 
+	 * @return パーツのリスト
+	 */
+	public List<Parts> getPartsList() {
+		return Parts.getListBySeihinCode(getSeihinCode());
+	}
+
+	/**
+	 * この販売製品のインスタンスに対応するキット製品を返す
+	 * 
+	 * @return キット製品のリスト
+	 */
+	public List<Kit> getKitList() {
+		return Kit.getListBySeihinCode(getSeihinCode());
+	}
 
 }

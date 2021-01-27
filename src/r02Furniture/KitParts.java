@@ -3,7 +3,11 @@
  */
 package r02Furniture;
 
+import java.util.List;
+
 /**
+ * キット製品構成パーツ(キット製品とパーツを参照)
+ * 
  * @author t.yoshizawa
  *
  */
@@ -42,6 +46,16 @@ public class KitParts {
 		setPartsCode(partsCode);
 		setSeihinCode(seihinCode);
 		setQty(qty);
+	}
+
+	public static List<KitParts> getListByPartsCode(String partsCode) {
+		// TODO partsCodeが一致するKitPartsをListに格納して返す
+		return null;
+	}
+
+	public static List<KitParts> getListBySeihinCode(String seihinCode) {
+		// TODO seihinCodeが一致するKitPartsをListに格納して返す
+		return null;
 	}
 
 }

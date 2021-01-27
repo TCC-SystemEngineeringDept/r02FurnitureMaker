@@ -34,8 +34,22 @@ public class Series {
 		setSeriesCode(seriesCode);
 		setSeriesName(seriesName);
 	}
-	
-	public List<Hinmoku> getHinmokuList(){
+
+	/**
+	 * このシリーズのインスタンスに対応する品目を返す
+	 * 
+	 * @return 品目のリスト
+	 */
+	public List<Hinmoku> getHinmokuList() {
 		return Hinmoku.getListBySeriesCode(getSeriesCode());
+	}
+
+	/**
+	 * このシリーズのインスタンスに対応するキット製品を返す
+	 * 
+	 * @return キット製品のリスト
+	 */
+	public List<Kit> getKitList() {
+		return Kit.getListBySeriesCode(getSeriesCode());
 	}
 }

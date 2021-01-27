@@ -3,7 +3,11 @@
  */
 package r02Furniture;
 
+import java.util.List;
+
 /**
+ * キット製品を扱うクラス（シリーズを参照）
+ * 
  * @author t.yoshizawa
  *
  */
@@ -60,6 +64,25 @@ public class Kit {
 		setSizeW(sizeW);
 		setSizeH(sizeH);
 		setSizeD(sizeD);
+	}
+
+	/**
+	 * このキット製品のインスタンスに対応するキット製品構成パーツを返す
+	 * 
+	 * @return キット製品構成パーツのリスト
+	 */
+	public List<KitParts> getKitPartsList() {
+		return KitParts.getListBySeihinCode(getSeihinCode());
+	}
+
+	public static List<Kit> getListBySeriesCode(String seriesCode) {
+		// TODO seriesCodeが一致するKitをListに格納して返す
+		return null;
+	}
+
+	public static List<Kit> getListBySeihinCode(String seihinCode) {
+		// TODO seihinCodeが一致するKitをListに格納して返す
+		return null;
 	}
 
 }

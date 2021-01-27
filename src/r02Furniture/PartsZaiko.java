@@ -4,6 +4,8 @@
 package r02Furniture;
 
 /**
+ * パーツの在庫を扱うクラス（パーツと1対1対応）
+ * 
  * @author t.yoshizawa
  *
  */
