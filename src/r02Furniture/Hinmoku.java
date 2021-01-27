@@ -3,6 +3,8 @@
  */
 package r02Furniture;
 
+import java.util.List;
+
 /**
  * @author t.yoshizawa
  *
@@ -81,6 +83,10 @@ public class Hinmoku {
 		setSizeW(sizeW);
 		setSizeH(sizeH);
 		setSizeD(sizeD);
+	}
+	public static List<Hinmoku> getByBuiCode(String buiCode){
+		// TODO BuiCodeが一致するHinmokuをListに格納して返す
+		return null;
 	}
 
 }

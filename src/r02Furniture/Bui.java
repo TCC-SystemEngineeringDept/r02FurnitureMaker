@@ -3,6 +3,8 @@
  */
 package r02Furniture;
 
+import java.util.List;
+
 /**
  * 
  * @author t.yoshizawa
@@ -33,5 +35,9 @@ public class Bui {
 	public Bui(String buiCode , String buiName) {
 		setBuiCode(buiCode);
 		setBuiName(buiName);
+	}
+	
+	public List<Hinmoku> getHinmoku(){
+		return Hinmoku.getByBuiCode(getBuiCode());
 	}
 }
