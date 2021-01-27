@@ -85,18 +85,18 @@ public class Hinmoku {
 		setSizeD(sizeD);
 	}
 	
-	public static List<Hinmoku> getByBuiCode(String buiCode){
+	public static List<Hinmoku> getListByBuiCode(String buiCode){
 		// TODO buiCodeが一致するHinmokuをListに格納して返す
 		return null;
 	}
 
-	public static List<Hinmoku> getBySeriesCode(String seriesCode){
+	public static List<Hinmoku> getListBySeriesCode(String seriesCode){
 		// TODO seriesCodeが一致するHinmokuをListに格納して返す
 		return null;
 	}
 	
-	public List<Parts> getParts(){
-		return Parts.getByHinmokuCode(getHinmokuCode());
+	public List<Parts> getPartsList(){
+		return Parts.getListByHinmokuCode(getHinmokuCode());
 	}
 
 }

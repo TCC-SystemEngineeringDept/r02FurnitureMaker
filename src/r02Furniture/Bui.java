@@ -37,7 +37,7 @@ public class Bui {
 		setBuiName(buiName);
 	}
 	
-	public List<Hinmoku> getHinmoku(){
-		return Hinmoku.getByBuiCode(getBuiCode());
+	public List<Hinmoku> getHinmokuList(){
+		return Hinmoku.getListByBuiCode(getBuiCode());
 	}
 }

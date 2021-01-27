@@ -3,6 +3,8 @@
  */
 package r02Furniture;
 
+import java.util.List;
+
 /**
  * @author t.yoshizawa
  *
@@ -32,5 +34,10 @@ public class Parts {
 	public Parts(String seihinCode, String hinmokuCode) {
 		setSeihinCode(seihinCode);
 		setHinmokuCode(hinmokuCode);
+	}
+	
+	public static List<Parts> getListByHinmokuCode(String hinmokuCode){
+		// TODO hinmokuCodeが一致するPartsをListに格納して返す
+		return null;
 	}
 }

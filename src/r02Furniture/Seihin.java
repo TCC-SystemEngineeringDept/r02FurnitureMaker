@@ -63,5 +63,6 @@ public class Seihin {
 		setSeihinName(seihinName);
 		setPrice(price);
 	}
+	
 
 }

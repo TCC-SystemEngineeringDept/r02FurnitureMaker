@@ -35,7 +35,7 @@ public class Series {
 		setSeriesName(seriesName);
 	}
 	
-	public List<Hinmoku> getHinmoku(){
-		return Hinmoku.getBySeriesCode(getSeriesCode());
+	public List<Hinmoku> getHinmokuList(){
+		return Hinmoku.getListBySeriesCode(getSeriesCode());
 	}
 }
