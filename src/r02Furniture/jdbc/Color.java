@@ -11,7 +11,7 @@ import java.util.List;
  * @author t.yoshizawa
  *
  */
-public class Color implements DBAccessInterface{
+public class Color implements DBAccessInterface {
 	private String colorCode;
 	private String colorName;
 
@@ -55,6 +55,8 @@ public class Color implements DBAccessInterface{
 		// TODO テーブルを作成する処理を追加する
 
 		// サンプルを追加
+		Color c = new Color("OAK", "オーク");
+		c.save();
 
 	}
 

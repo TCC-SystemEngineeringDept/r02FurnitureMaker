@@ -11,7 +11,7 @@ import java.util.List;
  * @author t.yoshizawa
  *
  */
-public class Bui implements DBAccessInterface{
+public class Bui implements DBAccessInterface {
 	private String buiCode;
 	private String buiName;
 
@@ -55,6 +55,8 @@ public class Bui implements DBAccessInterface{
 		// TODO テーブルを作成する処理を追加する
 
 		// サンプルを追加
+		Bui b = new Bui("BN", "接続ボルトナット");
+		b.save();
 
 	}
 

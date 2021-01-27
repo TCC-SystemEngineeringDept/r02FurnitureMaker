@@ -11,7 +11,7 @@ import java.util.List;
  * @author t.yoshizawa
  * 
  */
-public class Hinmoku implements DBAccessInterface{
+public class Hinmoku implements DBAccessInterface {
 	private String hinmokuCode;
 	private String hinmokuName;
 	private String seriesCode;
@@ -114,6 +114,8 @@ public class Hinmoku implements DBAccessInterface{
 		// TODO テーブルを作成する処理を追加する
 
 		// サンプルを追加
+		Hinmoku h = new Hinmoku("001", "アーバン調ボルトナットセット", "BU", "BN", 80, 80, 280);
+		h.save();
 
 	}
 

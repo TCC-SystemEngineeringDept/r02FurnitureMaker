@@ -8,7 +8,7 @@ import java.util.List;
  * @author t.yoshizawa
  *
  */
-public class Series implements DBAccessInterface{
+public class Series implements DBAccessInterface {
 	private String seriesCode;
 	private String seriesName;
 
@@ -61,6 +61,8 @@ public class Series implements DBAccessInterface{
 		// TODO テーブルを作成する処理を追加する
 
 		// サンプルを追加
+		Series s = new Series("BU", "寝室向けアーバンタイプ");
+		s.save();
 
 	}
 
