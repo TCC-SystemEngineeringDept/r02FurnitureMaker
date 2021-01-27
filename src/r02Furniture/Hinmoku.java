@@ -90,9 +90,13 @@ public class Hinmoku {
 		return null;
 	}
 
-	public static List<Hinmoku> getBySeriesCode(String hinmokuCode){
-		// TODO hinmokuCodeが一致するHinmokuをListに格納して返す
+	public static List<Hinmoku> getBySeriesCode(String seriesCode){
+		// TODO seriesCodeが一致するHinmokuをListに格納して返す
 		return null;
+	}
+	
+	public List<Parts> getParts(){
+		return Parts.getByHinmokuCode(getHinmokuCode());
 	}
 
 }
