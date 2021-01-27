@@ -1,5 +1,7 @@
 package r02Furniture;
 
+import java.util.List;
+
 /**
  * シリーズを扱うクラス
  * 
@@ -31,5 +33,9 @@ public class Series {
 	public Series(String seriesCode, String seriesName) {
 		setSeriesCode(seriesCode);
 		setSeriesName(seriesName);
+	}
+	
+	public List<Hinmoku> getHinmoku(){
+		return Hinmoku.getBySeriesCode(getSeriesCode());
 	}
 }
