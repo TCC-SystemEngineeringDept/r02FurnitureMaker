@@ -3,6 +3,9 @@
  */
 package r02Furniture.jdbc;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -108,15 +111,29 @@ public class Hinmoku implements DBAccessInterface {
 
 	/**
 	 * データベースを初期化し、サンプルデータを1件格納する
+	 * 
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
 	 */
-	public void init() {
-		// TODO テーブルを削除する処理を追加する
+	public static void init() throws SQLException, ClassNotFoundException {
 		// TODO テーブルを作成する処理を追加する
+		Connection connection = DBAccessInterface.getConnection();
+		PreparedStatement ps = connection.prepareStatement(
+				"CREATE TABLE HINMOKU ( HINMOKU_CODE CHAR(4) PRIMARY KEY , HINMOKU_NAME VARCHAR(200) , "
+						+ " SERIES_CODE CHAR(3),BUI_CODE CHAR(2) constraint HINMOKU_PK references BUI(BUI_CODE) ,SIZE_W number(5),SIZE_H number(5),SIZE_D number(5))");
+		ps.executeUpdate();
 
 		// サンプルを追加
 		Hinmoku h = new Hinmoku("001", "アーバン調ボルトナットセット", "BU", "BN", 80, 80, 280);
 		h.save();
 
+	}
+
+	public static void remove() throws ClassNotFoundException, SQLException {
+		// テーブルを削除する処理を追加する
+		Connection connection = DBAccessInterface.getConnection();
+		PreparedStatement ps = connection.prepareStatement("DROP TABLE HINMOKU");
+		ps.executeUpdate();
 	}
 
 	/**
@@ -125,4 +142,5 @@ public class Hinmoku implements DBAccessInterface {
 	public void save() {
 		// TODO インスタンスのデータを保存する処理を追加する
 	}
+
 }
