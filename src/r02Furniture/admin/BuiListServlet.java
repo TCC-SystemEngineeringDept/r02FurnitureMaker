@@ -33,7 +33,7 @@ public class BuiListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			List<Bui> list = Bui.list();
+			List<Bui> list = Bui.find();
 			request.setAttribute("buiList", list);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/admin/BuiList.jsp");

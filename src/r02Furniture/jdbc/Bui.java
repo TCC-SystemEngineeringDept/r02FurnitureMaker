@@ -61,8 +61,8 @@ public class Bui implements DBAccessInterface {
 	public static void init() throws ClassNotFoundException, SQLException {
 		// テーブルを作成する処理を追加する
 		Connection connection = DBAccessInterface.getConnection();
-		PreparedStatement ps = connection
-				.prepareStatement("CREATE TABLE BUI ( BUI_CODE CHAR(2) PRIMARY KEY , BUI_NAME VARCHAR(200) )");
+		PreparedStatement ps = connection.prepareStatement(
+				"CREATE TABLE BUI ( BUI_CODE CHAR(2) constraint BUI_PK PRIMARY KEY , BUI_NAME VARCHAR(200) )");
 		ps.executeUpdate();
 
 		// サンプルを追加
@@ -92,7 +92,7 @@ public class Bui implements DBAccessInterface {
 		ps.executeUpdate();
 	}
 
-	public static List<Bui> list() throws SQLException, ClassNotFoundException {
+	public static List<Bui> find() throws SQLException, ClassNotFoundException {
 		Connection connection = DBAccessInterface.getConnection();
 		PreparedStatement ps = connection.prepareStatement("SELECT BUI_CODE,BUI_NAME FROM BUI ");
 		ResultSet rs = ps.executeQuery();
@@ -110,7 +110,6 @@ public class Bui implements DBAccessInterface {
 
 		List<Bui> list = getResultList(rs);
 		return list;
-
 	}
 
 	private static List<Bui> getResultList(ResultSet rs) throws SQLException {
