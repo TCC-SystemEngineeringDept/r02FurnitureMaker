@@ -5,7 +5,9 @@ package r02Furniture.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -138,9 +140,62 @@ public class Hinmoku implements DBAccessInterface {
 
 	/**
 	 * このインスタンスをデータベースに格納する
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
-	public void save() {
-		// TODO インスタンスのデータを保存する処理を追加する
+	public void save() throws ClassNotFoundException, SQLException {
+		Connection connection = DBAccessInterface.getConnection();
+		PreparedStatement ps = connection.prepareStatement(
+				"INSERT INTO HINMOKU(HINMOKU_CODE  , HINMOKU_NAME  ,  SERIES_CODE ,BUI_CODE  ,SIZE_W ,SIZE_H ,SIZE_D) "+
+		" values(?,?,?,?,?,?,?)");
+		ps.setString(1, getHinmokuCode());
+		ps.setString(2, getHinmokuName());
+		ps.setString(3, getSeriesCode());
+		ps.setString(4, getBuiCode());
+		ps.setInt(5, getSizeW());
+		ps.setInt(6, getSizeH());
+		ps.setInt(7, getSizeD());
+
+		ResultSet rs = ps.executeQuery();
+
 	}
+	
+	public static List<Hinmoku> find() throws SQLException, ClassNotFoundException {
+		Connection connection = DBAccessInterface.getConnection();
+		PreparedStatement ps = connection.prepareStatement("SELECT HINMOKU_CODE  , HINMOKU_NAME  ,  SERIES_CODE ,BUI_CODE  ,SIZE_W ,SIZE_H ,SIZE_D  FROM HINMOKU ");
+		ResultSet rs = ps.executeQuery();
+
+		List<Hinmoku> list = getResultList(rs);
+
+		return list;
+	}
+
+	public static List<Hinmoku> listByHinmokuCode(String requestHinmokuCode) throws SQLException, ClassNotFoundException {
+		Connection connection = DBAccessInterface.getConnection();
+		PreparedStatement ps = connection.prepareStatement("SELECT HINMOKU_CODE  , HINMOKU_NAME  ,  SERIES_CODE ,BUI_CODE  ,SIZE_W ,SIZE_H ,SIZE_D  FROM HINMOKU where HINMOKU_CODE=?");
+		ps.setString(1, requestHinmokuCode);
+		ResultSet rs = ps.executeQuery();
+
+		List<Hinmoku> list = getResultList(rs);
+		return list;
+	}
+
+	private static List<Hinmoku> getResultList(ResultSet rs) throws SQLException {
+		List<Hinmoku> list = new ArrayList<Hinmoku>();
+
+		while (rs.next() == true) {
+			String hinmokuCode = rs.getString("HINMOKU_CODE");
+			String hinmokuName = rs.getString("HINMOKU_NAME");
+			String seriesCode = rs.getString("SERIES_CODE");
+			String buiCode = rs.getString("BUI_CODE");
+			int sizeW = rs.getInt("SIZE_W");
+			int sizeH = rs.getInt("SIZE_H");
+			int sizeD = rs.getInt("SIZE_D");
+			Hinmoku hinmoku = new Hinmoku(hinmokuCode,hinmokuName,seriesCode,buiCode,sizeW,sizeH,sizeD);
+			list.add(hinmoku);
+		}
+		return list;
+	}
+	
 
 }
